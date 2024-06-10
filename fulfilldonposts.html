@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fulfilled Donation Posts</title>
+    <link rel="stylesheet" href="fulfilldonpostsstyle.css">
+</head>
+<body>
+    <div class="container">
+        <h2>Fulfilled Donation Posts</h2>
+        <table id="donationPostsTable">
+            <thead>
+                <tr>
+                    <th>Donation ID</th>
+                    <th>Item</th>
+                    <th>Category</th>
+                    <th>Quantity</th>
+                    <th>Fulfillment Date</th>
+                </tr>
+            </thead>
+            <tbody id="donationPostsBody">
+                <tr>
+                    <td>1</td>
+                    <td>Clothes</td>
+                    <td>Clothing</td>
+                    <td>5</td>
+                    <td>2024-04-30</td>
+                </tr>
+                <tr>
+                    <td>2</td>
+                    <td>Toys</td>
+                    <td>Toys</td>
+                    <td>10</td>
+                    <td>2024-05-01</td>
+                </tr>
+            </tbody>
+        </table>
+        <button id="deleteBtn">Delete Selected Post</button>
+    </div>
+    
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Function to select a row
+            function selectRow(row) {
+         
+                if (selectedRow) {
+                    selectedRow.classList.remove('selected');
+                }
+                // Highlight the clicked row
+                row.classList.add('selected');
+                // Update selected row
+                selectedRow = row;
+            }
+ 
+            const tableBody = document.getElementById('donationPostsBody');
+            let selectedRow = null;
+
+            tableBody.addEventListener('click', function(event) {
+                const clickedRow = event.target.closest('tr');
+                if (clickedRow && clickedRow.parentNode === tableBody) {
+                    selectRow(clickedRow);
+                }
+            });
+
+
+            const deleteButton = document.getElementById('deleteBtn');
+            deleteButton.addEventListener('click', function() {
+                if (selectedRow) {
+                    const confirmation = confirm('Are you sure you want to delete the selected post?');
+                    if (confirmation) {
+                        selectedRow.remove(); 
+                        selectedRow = null; 
+                    }
+                } else {
+                    alert('Please select a post to delete.');
+                }
+            });
+        });
+    </script>
+</body>
+</html>

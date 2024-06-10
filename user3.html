@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Submission Review</title>
+<script src="user3.js"></script>
+<style>
+    body{
+        background-image: url(back2.jpg);
+    }
+    /* Add CSS here */
+    h1 {
+        background-color: #4783ec;
+        color: white;
+        padding: 10px;
+        text-align: center;
+    }
+
+    .submission {
+        border: 2px solid #1ecd95;
+        padding: 10px;
+        margin-bottom: 20px;
+    }
+
+    .accepted {
+        background-color: green;
+        color: white;
+    }
+
+    .rejected {
+        background-color: red;
+        color: white;
+    }
+    
+</style>
+</head>
+<body>
+    <h1>Submission Review</h1>
+
+    <div class="submission">
+        <h2>Organization Submission</h2>
+        <p><strong>Organization Name:</strong> Helping Hands Foundation</p>
+        <p><strong>Contact Person:</strong> John Smith</p>
+        <p><strong>Email:</strong> john.smith@example.com</p>
+        <p><strong>Phone:</strong> 123-456-7890</p>
+        <p><strong>Documents:</strong> <a href="#"> </a></p>
+        <button onclick="acceptSubmission(this)">Accept</button>
+        <button onclick="rejectSubmission(this)">Reject</button>
+    </div>
+
+    <div class="submission">
+        <h2>Donor Submission</h2>
+        <p><strong>Donor Name:</strong> Jane Doe</p>
+        <p><strong>Contact Person:</strong> Jane Doe</p>
+        <p><strong>Email:</strong> jane.doe@example.com</p>
+        <p><strong>Phone:</strong> 987-654-3210</p>
+        <p><strong>Documents:</strong> <a href="#"> </a></p>
+        <button onclick="acceptSubmission(this)">Accept</button>
+        <button onclick="rejectSubmission(this)">Reject</button>
+    </div>
+
+    <script>
+        function acceptSubmission(button) {
+            button.classList.add('accepted');
+            button.disabled = true; // disable the button after clicking
+            // Add logic to accept the submission
+            alert('Submission accepted!');
+        }
+
+        function rejectSubmission(button) {
+            button.classList.add('rejected');
+            button.disabled = true; // disable the button after clicking
+            // Add logic to reject the submission
+            alert('Submission rejected!');
+        }
+    </script>
+</body>
+</html>

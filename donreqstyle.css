@@ -1,0 +1,87 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&display=swap");
+
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    font-family: "Poppins", sans-serif;
+}
+
+body {
+    display: flex;
+    height: 200vh;
+    justify-content: center;
+    align-items: center;
+    background: url('registerpage.jpg');
+    background-size: cover;
+}
+
+.container {
+    width: 100%;
+    max-width: 650px;
+    background: transparent;
+    border: 2px solid rgba(255, 255, 255, .2);
+    backdrop-filter: blur(20px);
+    box-shadow: 0 0 10px rgba(0, 0, 0, .2);
+    padding: 30px 40px;
+    margin: 0 28px;
+    border-radius: 10px;
+}
+
+h2 {
+    font-size: 36px;
+    font-weight: 600;
+    text-align: center;
+    color: #4783ec;
+    margin-bottom: 20px;
+}
+
+form {
+    display: grid;
+    gap: 20px;
+}
+
+label {
+    color: #4783ec;
+    font-size: 20px;
+    font-weight: 400;
+}
+
+input, select {
+    height: 40px;
+    width: 100%;
+    border-radius: 48px;
+    background: transparent;
+    outline: none;
+    font-size: 16px;
+    border: 2px solid #4783ec;
+    padding: 10px 20px;
+    color: #4783ec;
+}
+
+button {
+    width: 100%;
+    padding: 10px;
+    border-radius: 48px;
+    background: #4783ec;
+    color: white;
+    border: none;
+    font-size: 20px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background 0.3s ease, color 0.3s ease;
+}
+
+button:hover {
+    background: #1e4fa4;
+}
+
+@media (max-width: 600px) {
+    .container {
+        min-width: 200px;
+    }
+
+    form {
+        gap: 10px;
+    }
+}

@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="notificationsstyle.css">
+    <title>Receive Donation Notifications</title>
+
+</head>
+<body>
+    <h1>Receive Donation Notifications</h1>
+    <div id="notificationDisplay"></div>
+  
+    <script>
+        function receiveNotification(notification) {
+            const notificationDisplay = document.getElementById('notificationDisplay');
+            notificationDisplay.innerHTML = `<p>New Notification: ${notification}</p>`;
+        }
+
+        function simulateNotification() {
+            // Simulate a notification 
+            const notification = "Donation post 123 chosen for fulfillment";
+            receiveNotification(notification);
+        }
+    </script>
+
+    <button onclick="simulateNotification()">Simulate Notification</button>
+</body>
+</html>

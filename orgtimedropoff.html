@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Schedule Selection for Donation Drop-off</title>
+    <link rel="stylesheet" href="dropoffstyle.css">
+</head>
+<body>
+    <div class="container">
+        <h2>Schedule Selection for Donation Drop-off</h2>
+        <form action="submit_schedule.php" method="post">
+            <label for="timeSlot">Time slot:</label>
+            <select id="timeSlot" name="timeSlot" required>
+                <option value="9:00 AM - 10:00 AM">9:00 AM - 10:00 AM</option>
+                <option value="10:00 AM - 11:00 AM">10:00 AM - 11:00 AM</option>
+                <option value="11:00 AM - 12:00 PM">11:00 AM - 12:00 PM</option>
+                <option value="12:00 PM - 1:00 PM">12:00 PM - 1:00 PM</option>
+                <option value="1:00 PM - 2:00 PM">1:00 PM - 2:00 PM</option>
+                <option value="2:00 PM - 3:00 PM">2:00 PM - 3:00 PM</option>
+                <option value="3:00 PM - 4:00 PM">3:00 PM - 4:00 PM</option>
+                <option value="4:00 PM - 5:00 PM">4:00 PM - 5:00 PM</option>
+            </select><br>
+
+            <button type="submit">Submit</button>
+        </form>
+    </div>
+</body>
+</html>

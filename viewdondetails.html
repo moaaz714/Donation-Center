@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>View Donor Contact Details</title>
+    <link rel="stylesheet" href="viewdonpostsstyle.css">
+</head>
+<body>
+    <div class="container">
+        <h2>Fulfilled Donation Posts</h2>
+        <table id="donationPostsTable">
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Item</th>
+                    <th>Category</th>
+                    <th>Quantity</th>
+                    <th>Date</th>
+                </tr>
+            </thead>
+            <tbody id="donationPostsBody">
+                <!-- Dummy data will be inserted here -->
+            </tbody>
+        </table>
+
+        <button id="showDetailsBtn">Show Donor Contact Details</button>
+
+        <div id="donorDetails">
+            <h3>Donor Contact Details</h3>
+            <p><strong>Name:</strong> <span id="donorName"></span></p>
+            <p><strong>Email:</strong> <span id="donorEmail"></span></p>
+            <p><strong>Phone:</strong> <span id="donorPhone"></span></p>
+        </div>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Dummy data for demonstration
+            const donationPosts = [
+                { id: '1', item: 'Clothes', category: 'Clothing', quantity: '5', date: '2024-05-01', donor: true },
+                // Add more donation posts as needed
+            ];
+
+            const donorDetailsData = {
+                '1': { name: 'John Doe', email: 'john@example.com', phone: '+1234567890' },
+                // Add donor details for other posts
+            };
+
+            document.getElementById('showDetailsBtn').addEventListener('click', function() {
+                const selectedRow = document.querySelector('.selected');
+                const donorNameElement = document.getElementById('donorName');
+                const donorEmailElement = document.getElementById('donorEmail');
+                const donorPhoneElement = document.getElementById('donorPhone');
+                
+                if (selectedRow && donorNameElement && donorEmailElement && donorPhoneElement) {
+                    const postId = selectedRow.firstChild.textContent;
+                    const selectedPost = donationPosts.find(post => post.id === postId);
+                    
+                    if (selectedPost && selectedPost.donor) {
+                        const donorDetails = donorDetailsData[selectedPost.id];
+                        
+                        if (donorDetails) {
+                            donorNameElement.textContent = donorDetails.name;
+                            donorEmailElement.textContent = donorDetails.email;
+                            donorPhoneElement.textContent = donorDetails.phone;
+                            document.getElementById('donorDetails').style.display = 'block';
+                        } else {
+                            document.getElementById('donorDetails').style.display = 'none';
+                        }
+                    } else {
+                        document.getElementById('donorDetails').style.display = 'none';
+                    }
+                }
+            });
+
+            // Populate table with donation post details
+            const tableBody = document.getElementById('donationPostsBody');
+            donationPosts.forEach(post => {
+                const row = document.createElement('tr');
+                row.innerHTML = `
+                    <td>${post.id}</td>
+                    <td>${post.item}</td>
+                    <td>${post.category}</td>
+                    <td>${post.quantity}</td>
+                    <td>${post.date}</td>
+                `;
+                tableBody.appendChild(row);
+            });
+
+            // Highlight selected row
+            const tableRows = document.querySelectorAll('#donationPostsBody tr');
+            tableRows.forEach(row => {
+                row.addEventListener('click', function() {
+                    tableRows.forEach(row => row.classList.remove('selected'));
+                    this.classList.add('selected');
+                });
+            });
+        });
+    </script>
+</body>
+</html>

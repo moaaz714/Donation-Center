@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Enter Donation Details</title>
+  	<link rel="stylesheet" href="donreqstyle.css">
+</head>
+<body>
+    <h2>Enter Donation Details</h2>
+    <form action="submit_donation.php" method="post">
+        <label for="category">Category:</label>
+        <select id="category" name="category">
+            <option value="clothes">Clothes</option>
+            <option value="toys">Toys</option>
+            <option value="food">Food</option>
+            <option value="medicalSupplies">Medical Supplies</option>
+            <option value="schoolSupplies">School Supplies</option>
+            <option value="bloodDonations">Blood Donations</option>
+        </select>
+
+        <label for="itemName">Item Name:</label>
+        <input type="text" id="itemName" name="itemName" required>
+
+        <!-- Additional fields based on category -->
+        <div id="additionalFields"></div>
+
+        <button type="submit">Submit</button>
+    </form>
+
+    <script>
+        // Function to dynamically show additional fields based on selected category
+        document.getElementById('category').addEventListener('change', function() {
+            var category = this.value;
+            var additionalFields = document.getElementById('additionalFields');
+
+            // Clear existing additional fields
+            additionalFields.innerHTML = '';
+
+            // Add additional fields based on category
+            switch(category) {
+                case 'clothes':
+                    additionalFields.innerHTML = '<label for="size">Size:</label><input type="text" id="size" name="size">';
+                    break;
+                case 'toys':
+                    additionalFields.innerHTML = '<label for="ageRange">Age Range:</label><input type="text" id="ageRange" name="ageRange">';
+                    break;
+                case 'food':
+                    additionalFields.innerHTML = '<label for="expiryDate">Expiry Date:</label><input type="date" id="expiryDate" name="expiryDate">';
+                    break;
+                case 'medicalSupplies':
+                    additionalFields.innerHTML = '<label for="type">Type:</label><input type="text" id="type" name="type">';
+                    break;
+                case 'schoolSupplies':
+                    additionalFields.innerHTML = '<label for="grade">Grade:</label><input type="text" id="grade" name="grade">';
+                    break;
+                case 'bloodDonations':
+                    additionalFields.innerHTML = '<label for="bloodType">Blood Type:</label><input type="text" id="bloodType" name="bloodType">';
+                    break;
+                default:
+                    break;
+            }
+        });
+    </script>
+</body>
+</html>

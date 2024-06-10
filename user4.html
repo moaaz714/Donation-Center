@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Request Management</title>
+<style>
+    body {
+        background-image: url(back2.jpg);
+        font-family: Arial, sans-serif;
+        margin: 0;
+        padding: 0;
+    }
+    header {
+        background-color: #4783ec;
+        color: #fff;
+        padding: 10px 0;
+        text-align: center;
+    }
+    main {
+        padding: 20px;
+    }
+    .request {
+        border: 1px solid #1ecd95;
+        padding: 10px;
+        margin-bottom: 10px;
+        border-radius: 8px; /* Adding border radius for curved corners */
+    }
+    .accept-btn, .reject-btn {
+        padding: 5px 10px;
+        cursor: pointer;
+        margin-right: 10px;
+    }
+    .accept-btn.accepted {
+        background-color: #8effa9; /* Light green color */
+    }
+    .reject-btn.rejected {
+        background-color: #b71515; /* Light red color */
+    }
+</style>
+</head>
+<body>
+    <header>
+        <h1>Request Management</h1>
+    </header>
+    <main>
+        <h2>Pending Requests</h2>
+        <div class="request">
+            <p><strong>Request ID:</strong> 1234 </p>
+            <p><strong>Request Type:</strong> clothes</p>
+            <p><strong>Request Details:</strong> nasr city </p>
+            <button class="accept-btn">Accept</button>
+            <button class="reject-btn">Reject</button>
+        </div>
+        <div class="request">
+            <p><strong>Request ID:</strong> 5678 </p>
+            <p><strong>Request Type:</strong> gloves</p>
+            <p><strong>Request Details:</strong> tagamo </p>
+            <button class="accept-btn">Accept</button>
+            <button class="reject-btn">Reject</button>
+        </div>
+    </main>
+    <script>
+        const acceptBtns = document.querySelectorAll('.accept-btn');
+        const rejectBtns = document.querySelectorAll('.reject-btn');
+
+        acceptBtns.forEach(btn => {
+            btn.addEventListener('click', () => {
+                btn.classList.toggle('accepted');
+            });
+        });
+
+        rejectBtns.forEach(btn => {
+            btn.addEventListener('click', () => {
+                btn.classList.toggle('rejected');
+            });
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="accountinfostyles.css" >
+    <title>Account Management</title>
+  
+</head>
+<body>
+    <div class="container">
+        <h1>Account Management</h1>
+        
+
+        <h2>Update Account Information</h2>
+        <form id="updateForm">
+            <label for="name">Name:</label>
+            <input type="text" id="name" name="name" required>
+            <label for="email">Email:</label>
+            <input type="email" id="email" name="email" required>
+            <label for="password">Password:</label>
+            <input type="password" id="password" name="password" required>
+            <!-- Add more fields as needed -->
+            <button type="submit">Update Account</button>
+        </form>
+
+        <h2>Delete Account</h2>
+        <p>Warning: Deleting your account will permanently remove all associated data.</p>
+        <button id="deleteButton">Delete Account</button>
+
+        <div id="feedback"></div>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const updateForm = document.getElementById('updateForm');
+            const feedback = document.getElementById('feedback');
+
+            // Update Account Functionality
+            updateForm.addEventListener('submit', function(event) {
+                event.preventDefault();
+
+                feedback.classList.remove('error');
+                feedback.classList.add('success');
+                feedback.textContent = 'Account information updated successfully!';
+            });
+
+            // Delete Account Functionality
+            const deleteButton = document.getElementById('deleteButton');
+            deleteButton.addEventListener('click', function() {
+                if (confirm('Are you sure you want to delete your account?')) {
+  feedback.classList.add('success');
+                    feedback.textContent = 'Account deleted successfully!';
+                }
+            });
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Organization Details</title>
+<style>
+    body{
+        background-image: url(back2.jpg);
+    }
+    /* Style for the organization list */
+    ul {
+        list-style-type: none;
+        padding: 0;
+    }
+
+    /* Style for the organization list items */
+    li {
+        padding: 10px;
+        margin-bottom: 5px;
+        background-color: #1ecd95; /* Fill the boxes with this color */
+        cursor: pointer;
+    }
+
+    /* Style for the organization details */
+    #details {
+        display: none;
+        padding: 10px;
+        margin-top: 10px;
+        border: 1px solid #ccc;
+    }
+
+    /* Center the title */
+    h1 {
+        text-align: center;
+        background-color: #4783ec; /* Fill the header with this color */
+        color: white;
+        padding: 10px;
+        margin: 0;
+    }
+</style>
+</head>
+<body>
+    <h1>Organizations</h1>
+    <ul id="organizationList">
+        <li onclick="showDetails('org1')">Organization 1</li>
+        <li onclick="showDetails('org2')">Organization 2</li>
+        <li onclick="showDetails('org3')">Organization 3</li>
+    </ul>
+    
+    <div id="details">
+        <h2 id="orgName"></h2>
+        <p><strong>Contact Details:</strong> <span id="contact"></span></p>
+        <p><strong>Address:</strong> <span id="address"></span></p>
+        <p><strong>Type:</strong> <span id="type"></span></p>
+    </div>
+
+    <script>
+        function showDetails(orgId) {
+            var details = document.getElementById("details");
+            var orgName = document.getElementById("orgName");
+            var contact = document.getElementById("contact");
+            var address = document.getElementById("address");
+            var type = document.getElementById("type");
+
+            // Assume organization details are retrieved from a database
+            var organizations = {
+                "org1": {
+                    "name": "Organization 1",
+                    "contact": "123-456-7890",
+                    "address": "123 Main St, City",
+                    "type": "Non-Profit"
+                },
+                "org2": {
+                    "name": "Organization 2",
+                    "contact": "987-654-3210",
+                    "address": "456 Elm St, Town",
+                    "type": "Community"
+                },
+                "org3": {
+                    "name": "Organization 3",
+                    "contact": "555-123-4567",
+                    "address": "789 Oak St, Village",
+                    "type": "Charity"
+                }
+            };
+
+            var organization = organizations[orgId];
+
+            orgName.textContent = organization.name;
+            contact.textContent = organization.contact;
+            address.textContent = organization.address;
+            type.textContent = organization.type;
+
+            details.style.display = "block";
+        }
+    </script>
+</body>
+</html>

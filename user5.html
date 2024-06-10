@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Password Management</title>
+    <style>
+        body{
+            background-image: url(back2.jpg);
+        }
+        header {
+            background-color: #4783ec;
+            padding: 10px; /* Add padding for better visual */
+            text-align: center; /* Center align text */
+        }
+    </style>
+    <script src="user5.js"></script>
+</head>
+<body>
+    <header>
+        <h1>Password Management</h1>
+    </header>
+    
+    <h2>Account Settings</h2>
+    <p>You can access your account settings here:</p>
+    <a href="/account-settings">Account Settings</a>
+
+    <h2>Change Password</h2>
+    <p>To change your password, please use the form below:</p>
+    <form action="/change-password" method="post">
+        <label for="current-password">Current Password:</label><br>
+        <input type="password" id="current-password" name="current-password"><br><br>
+        
+        <label for="new-password">New Password:</label><br>
+        <input type="password" id="new-password" name="new-password"><br><br>
+        
+        <label for="confirm-password">Confirm New Password:</label><br>
+        <input type="password" id="confirm-password" name="confirm-password"><br><br>
+        
+        <input type="submit" value="Change Password">
+    </form>
+</body>
+</html>

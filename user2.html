@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Organization and Donor Lists</title>
+<style>
+    body {
+        background-image: url(back2.jpg);
+        margin: 0;
+        padding: 0;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        min-height: 100vh;
+        background-color: #f0f0f0;
+    }
+
+    main {
+        width: 80%;
+        max-width: 800px;
+        background-color: white;
+        padding: 20px;
+        border-radius: 8px;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    }
+
+    header {
+        background-color: #4783ec;
+        padding: 10px;
+        text-align: center;
+        border-radius: 8px 8px 0 0;
+        color: white;
+    }
+
+    nav {
+        text-align: center;
+        margin-bottom: 20px;
+    }
+
+    nav ul {
+        list-style-type: none;
+        padding: 0;
+        margin: 0;
+    }
+
+    nav ul li {
+        display: inline;
+        margin-right: 10px;
+    }
+
+    nav ul li a {
+        color: #4783ec;
+        text-decoration: none;
+    }
+
+    /* Hide sections by default */
+    main section {
+        display: none;
+    }
+
+    /* Style for section titles */
+    h2 {
+        margin-top: 0;
+    }
+
+    /* Style for lists */
+    ul {
+        padding: 0;
+        margin: 0;
+    }
+
+    li {
+        margin-bottom: 5px;
+    }
+</style>
+</head>
+<body>
+    <main>
+        <header>
+            <h1>Organization and Donor Management System</h1>
+        </header>
+        <nav>
+            <ul>
+                <li><a href="#" id="view-organizations">View Organizations</a></li>
+                <li><a href="#" id="view-donors">View Donors</a></li>
+            </ul>
+        </nav>
+        <section id="organization-list">
+            <h2>Organization List</h2>
+            <ul>
+                <!-- Placeholder for organization list -->
+                <li>Organization 1</li>
+                <li>Organization 2</li>
+                <li>Organization 3</li>
+            </ul>
+        </section>
+        <section id="donor-list">
+            <h2>Donor List</h2>
+            <ul>
+                <!-- Placeholder for donor list -->
+                <li>Donor 1</li>
+                <li>Donor 2</li>
+                <li>Donor 3</li>
+            </ul>
+        </section>
+    </main>
+    <script>
+        // Get references to the sections and links
+        const organizationList = document.getElementById('organization-list');
+        const donorList = document.getElementById('donor-list');
+        const viewOrganizations = document.getElementById('view-organizations');
+        const viewDonors = document.getElementById('view-donors');
+
+        // Function to show organization list and hide donor list
+        function showOrganizations() {
+            organizationList.style.display = 'block';
+            donorList.style.display = 'none';
+        }
+
+        // Function to show donor list and hide organization list
+        function showDonors() {
+            organizationList.style.display = 'none';
+            donorList.style.display = 'block';
+        }
+
+        // Initially show organization list
+        showOrganizations();
+
+        // Event listeners to switch between organization and donor lists
+        viewOrganizations.addEventListener('click', showOrganizations);
+        viewDonors.addEventListener('click', showDonors);
+    </script>
+</body>
+</html>

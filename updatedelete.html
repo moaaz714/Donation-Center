@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Manage Donation Posts</title>
+    <link rel="stylesheet" href="updatedeleteststyle.css">
+</head>
+<body>
+    <div class="container">
+        <h2>Manage Donation Posts</h2>
+
+        <div class="donation-posts">
+            <div class="donation-post">
+                <h3>Item Name: Clothing</h3>
+                <p>Category: Clothes</p>
+                <p>Details: Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+              
+                <button class="btn-update" onclick="showUpdateForm()">Update</button>
+                <button class="btn-delete" onclick="deletePost()">Delete</button>
+            </div>
+        </div>
+
+        <div id="updateForm" class="update-form" style="display: none;">
+            <h3>Update Donation Post</h3>
+            <form action="update_donation_post.php" method="post">
+                <label for="itemName">Item Name:</label>
+                <input type="text" id="itemName" name="itemName" required>
+                <button type="submit" class="btn-submit">Update</button>
+            </form>
+        </div>
+    </div>
+
+    <script>
+        function showUpdateForm() {
+            document.getElementById('updateForm').style.display = 'block';
+          var itemName = document.querySelector('.donation-post h3').textContent;
+          var category = document.querySelector('.donation-post p:nth-of-type(1)').textContent;
+          var details = document.querySelector('.donation-post p:nth-of-type(2)').textContent;
+          document.getElementById('itemName').value = itemName.replace('Item Name: ', '');
+        } 
+        function deletePost() {
+            
+           if (confirm("Are you sure you want to delete this post?")) {             
+                var donationPost = button.closest('.donation-post');
+                var xhr = new XMLHttpRequest();
+                xhr.open("POST", "delete_donation_post.php", true);
+                xhr.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+                xhr.onreadystatechange = function() {
+                    if (xhr.readyState == 4 && xhr.status == 200) {
+                        donationPost.parentNode.removeChild(donationPost);
+                    }
+                }
+                xhr.send();
+            }
+        }
+    </script>
+</body>
+</html>
